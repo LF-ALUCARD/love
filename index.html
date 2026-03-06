@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Amor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="IMG/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Tela de Senha -->
+        <section id="password-screen" class="screen active">
+            <div class="card">
+                <h1>Olá, meu amor...</h1>
+                <p>Para acessar seu presentinho, digite a nossa data especial:</p>
+                <input type="text" id="password-input" placeholder="DD/MM/AAAA" maxlength="10" inputmode="numeric" autocomplete="off">
+                <button id="unlock-btn">Entrar</button>
+                <p class="hint">Dica: Data do nosso primeiro beijo</p>
+            </div>
+        </section>
+
+        <!-- Tela de Introdução -->
+        <section id="intro-screen" class="screen hidden">
+            <div class="card">
+                <h2>Meu amor!</h2>
+                <p>Clique no envelope abaixo para ler. <br> Use fone de ouvido para uma experiência melhor.</p>
+                <button id="open-letter-btn" class="envelope-btn">✉️ Abrir Carta</button>
+            </div>
+        </section>
+
+        <!-- Tela da Carta -->
+        <section id="letter-screen" class="screen hidden">
+            <div class="letter-container">
+                <div id="letter-text" class="letter-text"></div>
+                <button id="love-btn" class="hidden">click aqui ❤️</button>
+            </div>
+        </section>
+    </div>
+
+    <audio id="bg-music" loop preload="auto">
+        <source src="Music/music.mpeg" type="audio/mpeg">
+    </audio>
+
+    <div id="floating-alert" class="floating-alert hidden" role="dialog" aria-modal="true" aria-labelledby="floating-alert-title">
+        <div class="floating-alert__overlay" data-close-alert="true"></div>
+        <div class="floating-alert__box">
+            <h3 id="floating-alert-title">Lembre-se que...</h3>
+            <p id="floating-alert-message">Eu te amo mais!!</p>
+            <button id="floating-alert-close-btn" type="button">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

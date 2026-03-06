@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    color: #5d2a2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+.screen.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+}
+
+.hidden {
+    display: none;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+}
+
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #d63384;
+    margin-top: 0;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+input {
+    padding: 12px;
+    border: 2px solid #ffc1cc;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    outline: none;
+    width: calc(100% - 28px);
+}
+
+button {
+    padding: 12px 30px;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+    background-color: #ff758f;
+    transform: scale(1.05);
+}
+
+.hint {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 15px;
+}
+
+.envelope-btn {
+    font-size: 1.5rem;
+    padding: 15px 40px;
+}
+
+.letter-container {
+    width: 80%;
+    max-width: 700px;
+    height: 80vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
+    font-size: 1.3rem;
+    white-space: pre-wrap;
+    text-align: left;
+    backdrop-filter: blur(5px);
+}
+
+.letter-text {
+    font-family: 'Dancing Script', cursive;
+}
+
+.letter-text.typing::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 2px;
+    animation: caret-blink 0.8s steps(1, end) infinite;
+}
+
+#love-btn {
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: scale(0.95);
+    opacity: 0;
+}
+
+#love-btn.love-btn-animate {
+    animation: love-reveal 0.8s ease-out forwards, pulse 1.8s ease-in-out 0.8s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes caret-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@keyframes love-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.floating-alert {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-alert.hidden {
+    display: none;
+}
+
+.floating-alert__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+}
+
+.floating-alert__box {
+    position: relative;
+    width: min(90vw, 360px);
+    min-height: 230px;
+    border-radius: 20px;
+    padding: 26px 24px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), url("IMG/ela.jpeg");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.3);
+    animation: floating-alert-in 0.35s ease;
+}
+
+.floating-alert__box h3 {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.floating-alert__box p {
+    margin: 0;
+    font-size: 1.05rem;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+#floating-alert-close-btn {
+    margin: 14px auto 0;
+    background: rgba(255, 255, 255, 0.9);
+    color: #c2185b;
+    font-weight: 700;
+}
+
+#floating-alert-close-btn:hover {
+    background: #fff;
+}
+
+@keyframes floating-alert-in {
+    from {
+        transform: translateY(8px) scale(0.94);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
