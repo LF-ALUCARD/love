@@ -17,7 +17,7 @@ const bgMusic = document.getElementById("bg-music");
 const floatingAlert = document.getElementById("floating-alert");
 const floatingAlertMessage = document.getElementById("floating-alert-message");
 const floatingAlertCloseBtn = document.getElementById("floating-alert-close-btn");
-const VELOCIDADE_DIGITACAO = 1;
+const VELOCIDADE_DIGITACAO = 80;
 
 const introText = `Meu amor, eu fiz esse pequeno gesto pensando que seria uma forma diferente de você receber a minha primeira carta rsrs.
 Acredite ou não, eu tenho um pouco de dificuldade para traduzir alguns pensamentos em palavras, então me perdoe se eu não escrever tão bem neste primeiro momento.
